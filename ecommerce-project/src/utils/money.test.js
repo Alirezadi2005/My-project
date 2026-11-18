@@ -1,0 +1,25 @@
+import { it, expect, describe } from 'vitest';
+import { formatMoney } from './money';
+
+// unit test: test a single unit
+// integration test: test multiple units of code
+// group of test: test suite
+
+describe('test suite: formatMoney', () => {
+  it('formats 1999 cents as $19.99', () => {
+    expect(formatMoney(1999)).toBe('$19.99');
+  });
+
+  it('displays 2 decimals', () => {
+    expect(formatMoney(1900)).toBe('$19.00');
+    expect(formatMoney(100)).toBe('$1.00');
+  });
+
+  it('displays 0 correctly', () => {
+    expect(formatMoney(0)).toBe('$0.00');
+  });
+
+    it('displays negative numbers correctly', () => {
+    expect(formatMoney(-999)).toBe('-$9.99');
+  });
+});
